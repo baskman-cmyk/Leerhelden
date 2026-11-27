@@ -2,13 +2,13 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 sha256sum --check <<'CHECKSUMS'
-262f4f10f6379eaeac3eb2de1b31ed57f2c5575cda9f73a5df0c0530f32bdce6  site-20261123-startchecks-informatie-part-00
-2f7d95fa64494496b4cb2574d462177f3c0e917247f78a52fe3421031c2ebccf  site-20261123-startchecks-informatie-part-01
-638be56469178bd0575233c90f175212fd1dd33f69acc4737e11807cfc9478dc  site-20261123-startchecks-informatie-part-02
+1b679444d38206a5e4ef6d5698132bbd75e9f23ac1d1c01f0606ec5b2b421cc1  site-20261126-publicatie24-part-00
+d8804e7f3682e0103771613d8aed366738ee96005b5d9426920693070684b479  site-20261126-publicatie24-part-01
+284f8aceec4a22fece31d4a3c810e34f7ecfd253d17d96646e78130514382767  site-20261126-publicatie24-part-02
 CHECKSUMS
 stage_dir="$(mktemp -d .leerhelden-build.XXXXXX)"
 trap 'rm -rf "$stage_dir"' EXIT
-cat site-20261123-startchecks-informatie-part-00 site-20261123-startchecks-informatie-part-01 site-20261123-startchecks-informatie-part-02 | tar -xzf - -C "$stage_dir"
+cat site-20261126-publicatie24-part-00 site-20261126-publicatie24-part-01 site-20261126-publicatie24-part-02 | tar -xzf - -C "$stage_dir"
 test -f "$stage_dir/dist/index.html"
 test -f "$stage_dir/dist/ouders/index.html"
 test -f "$stage_dir/dist/wereld/data/wereld-bank.json"
